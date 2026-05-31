@@ -20,7 +20,7 @@ function getClient() {
 
     const client = new Client({
       // SockJS provides the WebSocket transport with fallbacks
-      webSocketFactory: () => new SockJS('/ws'),
+      webSocketFactory: () => new SockJS(import.meta.env.VITE_WS_URL || '/ws'),
       reconnectDelay: 5000,
 
       onConnect: () => {

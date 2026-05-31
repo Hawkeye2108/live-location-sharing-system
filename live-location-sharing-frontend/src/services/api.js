@@ -1,5 +1,4 @@
-// Base URL — Vite dev proxy forwards /session → http://localhost:8080
-const BASE = ''
+const BASE = import.meta.env.VITE_API_BASE_URL || ''
 
 /**
  * Create a new sharing session.
