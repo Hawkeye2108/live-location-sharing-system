@@ -1,5 +1,6 @@
 package com.org.livelocationsharing.config;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -38,5 +39,10 @@ public class CorsConfig {
         source.registerCorsConfiguration("/**", config);  // apply to all endpoints
 
         return new CorsFilter(source);
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("Allowed origins = " + allowedOrigins);
     }
 }
